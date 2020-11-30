@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Algorithm
 {
-    class BaseSort<T> : IEnumerable where T : IComparable
+    public class BaseSort<T> : IEnumerable where T : IComparable
     {
         public List<T> Items = new List<T>();
         public int SwopCount { get; protected set; } = 0;
