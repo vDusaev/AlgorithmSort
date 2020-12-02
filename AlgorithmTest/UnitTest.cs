@@ -74,5 +74,21 @@ namespace AlgorithmTest
                 Assert.AreEqual(Sorted[i], cocktailSort.Items[i]);
             }
         }
+
+        [TestMethod()]
+        public void InsertSortTest()
+        {
+            // arrange
+            var insertSort = new InsertSort<int>(Items);
+
+            // act
+            insertSort.Sort();
+
+            // assert
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Assert.AreEqual(Sorted[i], insertSort.Items[i]);
+            }
+        }
     }
 }
