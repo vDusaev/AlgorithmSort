@@ -106,5 +106,21 @@ namespace AlgorithmTest
                 Assert.AreEqual(Sorted[i], shellSort.Items[i]);
             }
         }
+
+        [TestMethod()]
+        public void SelectionSortTest()
+        {
+            // arrange
+            var selectionSort = new SelectionSort<int>(Items);
+
+            // act
+            selectionSort.Sort();
+
+            // assert
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Assert.AreEqual(Sorted[i], selectionSort.Items[i]);
+            }
+        }
     }
 }
