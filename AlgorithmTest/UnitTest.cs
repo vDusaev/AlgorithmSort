@@ -122,5 +122,21 @@ namespace AlgorithmTest
                 Assert.AreEqual(Sorted[i], selectionSort.Items[i]);
             }
         }
+
+        [TestMethod()]
+        public void GnomeSortTest()
+        {
+            // arrange
+            var gnomeSort = new GnomeSort<int>(Items);
+
+            // act
+            gnomeSort.Sort();
+
+            // assert
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Assert.AreEqual(Sorted[i], gnomeSort.Items[i]);
+            }
+        }
     }
 }
