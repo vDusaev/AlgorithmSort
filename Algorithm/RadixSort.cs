@@ -51,6 +51,42 @@ namespace Algorithm
         }
         private void SortMSD()
         {
+            var countOfDigits = getCountsOfDigits();
+            var result = SortMSD(Items, countOfDigits - 1);
+
+            for (int i = 0; i < result.Count; i++)
+            {
+                Items[i] = result[i];
+            }
+        }
+        private List<T> SortMSD(List<T> collections, int step)
+        {
+            var result = new List<T>();
+
+            var dictionary = new List<List<T>>();
+            for (int i = 0; i < 10; i++)
+            {
+                dictionary.Add(new List<T>());
+            }
+
+            foreach (var itemСollections in collections)
+            {
+                var indexDictionary = itemСollections.GetHashCode() % (int)Math.Pow(10, step + 1) / (int)Math.Pow(10, step);
+                dictionary[indexDictionary].Add(itemСollections);
+            }
+
+            foreach (var itemDictionary in dictionary)
+            {
+                if (itemDictionary.Count > 1 && step > 0)
+                {
+                    result.AddRange(SortMSD(itemDictionary, step - 1));
+                    continue;
+                }
+
+                result.AddRange(itemDictionary);
+            }
+
+            return result;
         }
 
         private int getCountsOfDigits()
