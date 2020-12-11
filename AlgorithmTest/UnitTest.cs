@@ -170,5 +170,21 @@ namespace AlgorithmTest
                 Assert.AreEqual(Sorted[i], radixSort.Items[i]);
             }
         }
+
+        [TestMethod()]
+        public void MergeSortTest()
+        {
+            // arrange
+            var mergeSort = new MergeSort<int>(Items);
+
+            // act
+            mergeSort.Sort();
+
+            // assert
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Assert.AreEqual(Sorted[i], mergeSort.Items[i]);
+            }
+        }
     }
 }
