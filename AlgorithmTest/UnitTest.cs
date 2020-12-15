@@ -186,5 +186,21 @@ namespace AlgorithmTest
                 Assert.AreEqual(Sorted[i], mergeSort.Items[i]);
             }
         }
+
+        [TestMethod()]
+        public void QuickSortTest()
+        {
+            // arrange
+            var quickSort = new QuickSort<int>(Items);
+
+            // act
+            quickSort.Sort();
+
+            // assert
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Assert.AreEqual(Sorted[i], quickSort.Items[i]);
+            }
+        }
     }
 }
